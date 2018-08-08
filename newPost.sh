@@ -4,6 +4,8 @@ remote_user=
 remote_host=
 posts_directory=
 
+set -e
+
 while true
 do
     echo -e "Title: （'\ / : * ? \" < > |' are not allowed)"
@@ -38,7 +40,19 @@ if [ $? -ne 0 ]
 then
     echo "Bad network ... Please try again later."
 else
-    echo "" > template.md
-    rm $filename.md
+    cd posts
+    if [ $? -ne 0 ]
+    then
+        git clone git@github.com:zealllot/posts.git
+        cd posts
+    fi
+
+    mv ../$filename.md ./
+
+    git add $filename.md
+    git commit -m "$title"
+    git push origin master
+
+    echo "" > ../template.md
 fi 
 
