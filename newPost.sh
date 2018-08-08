@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-remote_user=
-remote_host=
-posts_directory=
-
 set -e
 
 while true
@@ -43,7 +39,7 @@ else
     cd posts
     if [ $? -ne 0 ]
     then
-        git clone git@github.com:zealllot/posts.git
+        git clone $repository
         cd posts
     fi
 
