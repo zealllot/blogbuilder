@@ -47,7 +47,7 @@ else
         cd posts
     fi
 
-#    git pull --rebase
+    git pull --rebase
 
     mv ../$filename.md ./
 
