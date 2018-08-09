@@ -23,6 +23,8 @@ do
     filename=${title// /_}
     sed -e '1 s/;/\'$'\n/g' template.md > $filename.md
 
+    echo "1 ------ add tag and rename"
+
     if [ $? -eq 0 ]
     then
         break
@@ -32,6 +34,8 @@ done
 
 
 scp $filename.md $remote_user@$remote_host:$posts_directory
+echo "2 ------ upload and deploy"
+
 if [ $? -ne 0 ]
 then
     echo "Bad network ... Please try again later."
@@ -43,7 +47,7 @@ else
         cd posts
     fi
 
-    git pull --rebase
+#    git pull --rebase
 
     mv ../$filename.md ./
 
@@ -51,6 +55,9 @@ else
     git commit -m "$title"
     git push origin master
 
+    echo "3 ------ backup"
+
     echo "" > ../template.md
+    echo "4 ------ clear"
 fi 
 
