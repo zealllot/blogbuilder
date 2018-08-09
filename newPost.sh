@@ -43,6 +43,8 @@ else
         cd posts
     fi
 
+    git pull --rebase
+
     mv ../$filename.md ./
 
     git add $filename.md
