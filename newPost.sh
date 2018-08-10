@@ -57,7 +57,7 @@ else
 
     echo "3 ------ backup"
 
-    echo "" > ../template.md
+    : > ../template.md
     echo "4 ------ clear"
 fi 
 
