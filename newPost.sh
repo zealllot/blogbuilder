@@ -2,6 +2,11 @@
 
 set -e
 
+export remote_user=
+export remote_host=
+export posts_directory=
+export repository=
+
 while true
 do
     echo -e "Title: （'\ / : * ? \" < > |' are not allowed)"
